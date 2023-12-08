@@ -129,7 +129,14 @@ var finances = [
 // current data point
 // previous data point
 
-console.log (finances.length)
+console.log("Financial Analysis\n------------------")
+
+
+
+//Total Months
+console.log (`Total Months: ${finances.length}`)
+
+//* The net total amount of Profit/Losses over the entire period.
 
 let profits = 0;
 let losses = 0;
@@ -145,40 +152,86 @@ if (finances[i][1] > 0){
   losses +=finances[i][1];
 }
 }
+netPnL = profits+losses
 
-  console.log( `Total Profits: ${profits}`);
-  console.log( `Total Losses:" ${losses}`);
+console.log(`Total: $${netPnL}`)
 
   //Find average
 
-  let average = 0;
+  let sum=0;
 
-  average = [(profits + losses) / finances.length];
+  for ( let i=1; i < finances.length; i++){
+    let change = finances[i][1]-finances[i-1][1];
+    sum +=change;
+  }
 
-  console.log(`Average: ${average}`)
+  let average= sum/(finances.length-1);
 
+  let averageTwoDecimal = average.toFixed(2)
+
+  console.log(`Average: ${averageTwoDecimal}`)
+
+
+ 
   //Find greatest increase increase in Profit / Losses over the entire period
 
-  let greatestIncrease = [0, ' ', ' '];
-  let greatestLosses = [0, ' ', ' '];
+  let greatestIncrease = [0,' '];
   
   for ( let i=1; i < finances.length; i++){
-    let change = [finances[i][1]-finances[i-1][1]]
+    let change = finances[i][1]-finances[i-1][1];
     if (change > greatestIncrease[0]) {
-    greatestIncrease=[change, finances[i][0], finances[i][1]];
+      greatestIncrease=[change, finances[i][0]];
+      }
+    }
 
-  } else if (change < greatestLosses[0]) {
-    greatestLosses=[change, finances[i][0], finances[i][1]];
-  }
-}
+  console.log(`Greatest Increase in Profits/Losses: ${greatestIncrease[1]} ($${greatestIncrease[0]}).`);
 
-  console.log(`${greatestIncrease[1]} with profits ${greatestIncrease[2]} has the greatest increase in profits with value ${greatestIncrease[0]}.`);
-  console.log(`${greatestLosses[1]} with losses ${greatestLosses[2]} has the greatest losses with value ${greatestLosses[0]}`);
+  //The greatest decrease in Profit / Losses(date and amount) over the entire period
+
+  let greatestDecrease = [Infinity, ' '];
+  
+  for ( let i=1; i < finances.length; i++){
+    let change = finances[i][1]-finances[i-1][1];
+    if ( change < greatestDecrease[0]) {
+      greatestDecrease=[change, finances[i][0]];
+      }
+    }
+
+  console.log(`Greatest Decrease in Profits/Losses: ${greatestDecrease[1]} ($${greatestDecrease[0]}).`);
+
+
+  // } else if (change < greatestLosses[0]) {
+  //   greatestLosses=[change, finances[i][0], finances[i][1]];
+  // }
+
+  // if ((Math.abs(greatestIncrease))>(Math.abs(greatestLosse))){
+  //   console.log(`${greatestIncrease[1]} with profits ${greatestIncrease[2]} has the greatest increase in profits with value ${greatestIncrease[0]}.`);
+  // } else if ((Math.abs(greatestIncrease))<(Math.abs(greatestLosse))){
+  //   console.log(`${greatestLosses[1]} with losses ${greatestLosses[2]} has the greatest losses with value ${greatestLosses[0]};
+  // }
+
+
+  // // console.log(`${greatestIncrease[1]} with profits ${greatestIncrease[2]} has the greatest increase in profits with value ${greatestIncrease[0]}.`);
+  // console.log(`${greatestLosses[1]} with losses ${greatestLosses[2]} has the greatest losses with value ${greatestLosses[0]}`);
 
 //The greatest decrease in Profit / Losses(date and amount) over the entire period
 
 
+// let greatestProfitDecrease = [0, ' ', ' '];
+// let greatestLossDecrease = [0, ' ', ' '];
 
+// for ( let i=1; i < finances.length; i++){
+//   let change = [finances[i][1]-finances[i-1][1]]
+//   if (change < 0 && change < greatestProfitDecrease[0]) {
+//     greatestProfitDecrease=[change, finances[i][0], finances[i][1]];
+
+// } else if (change < greatestLossDecrease[0]) {
+//   greatestLossDecrease=[change, finances[i][0], finances[i][1]];
+// }
+// }
+
+// console.log(`${greatestProfitDecrease[1]} with profits ${greatestProfitDecrease[2]} has the greatest decrease in profits with value ${greatestProfitDecrease[0]}.`);
+// console.log(`${greatestLossDecrease[1]} with losses ${greatestLossDecrease[2]} has the greatest decrease with value ${greatestLossDecrease[0]}`);
 
   
 
