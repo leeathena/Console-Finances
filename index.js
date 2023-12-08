@@ -146,7 +146,42 @@ if (finances[i][1] > 0){
 }
 }
 
-
   console.log( `Total Profits: ${profits}`);
   console.log( `Total Losses:" ${losses}`);
+
+  //Find average
+
+  let average = 0;
+
+  average = [(profits + losses) / finances.length];
+
+  console.log(`Average: ${average}`)
+
+  //Find greatest increase increase in Profit / Losses over the entire period
+
+  let greatestIncrease = [0, ' ', ' '];
+  let greatestLosses = [0, ' ', ' '];
+  
+  for ( let i=1; i < finances.length; i++){
+    let change = [finances[i][1]-finances[i-1][1]]
+    if (change > greatestIncrease[0]) {
+    greatestIncrease=[change, finances[i][0], finances[i][1]];
+
+  } else if (change < greatestLosses[0]) {
+    greatestLosses=[change, finances[i][0], finances[i][1]];
+  }
+}
+
+  console.log(`${greatestIncrease[1]} with profits ${greatestIncrease[2]} has the greatest increase in profits with value ${greatestIncrease[0]}.`);
+  console.log(`${greatestLosses[1]} with losses ${greatestLosses[2]} has the greatest losses with value ${greatestLosses[0]}`);
+
+//The greatest decrease in Profit / Losses(date and amount) over the entire period
+
+
+
+
+  
+
+
+
 
