@@ -1,9 +1,9 @@
 # Console-Finances
 
-##Overview
+## Overview
 I am tasked with creating code for analyzing the financial records of a company. You have been provided with a financial dataset in the `starter/index.js` file. 
 
-##Acceptance criteria
+## Acceptance criteria
 write JavaScript code that analyzes the records to calculate each of the following:
 
 * The total number of months included in the dataset.
