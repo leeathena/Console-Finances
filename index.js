@@ -89,45 +89,6 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-// You have been given a dataset composed of arrays with two fields, Date and Profit / Losses.
-
-// Your task is to write JavaScript code that analyzes the records to calculate each of the following:
-
-// The total number of months included in the dataset.
-  // finances.length
-
-// The net total amount of Profit / Losses over the entire period.
-  // Need a variable for Profits/Losses
-  // Need to be able to compare the data for the loop that we're on to the data from the previous loop
-    // Need variables for current & previous once we start the loop
-    // Need an if statement to make sure we're on at least month 2 (array index 1) before starting to figure profits & losses
-
-// The average of the changes in Profit / Losses over the entire period.
-  // Need a variable to track the average change
-  // That will make use of the current & previous variables we set up before
-// You will need to track what the total change in Profit / Losses are from month to month and then find the average.
-// (Total / (Number of months - 1))
-
-// The greatest increase in Profit / Losses(date and amount) over the entire period.
-  // Need a variable for the greatest increase
-  // On each iteration, compare the current change in profits/losses to what's currently stored
-  // If the change is more, replace what's currently stored in the variable
-
-// The greatest decrease in Profit / Losses(date and amount) over the entire period.
-  // Need a variable for the greatest decrease
-  // On each iteration, compare the current change in profits/losses to what's currently stored
-  // If the loss is greater, replace what's currently stored in the variable
-
-// variables:
-// total number of months
-// rolling total of profits
-// greatest increase (month & amt)
-// greatest loss (month & amt)
-// average of the changes
-
-// variables declared inside the loop:
-// current data point
-// previous data point
 
 console.log("Financial Analysis\n------------------")
 
@@ -199,41 +160,6 @@ console.log(`Total: $${netPnL}`)
 
   console.log(`Greatest Decrease in Profits/Losses: ${greatestDecrease[1]} ($${greatestDecrease[0]}).`);
 
-
-  // } else if (change < greatestLosses[0]) {
-  //   greatestLosses=[change, finances[i][0], finances[i][1]];
-  // }
-
-  // if ((Math.abs(greatestIncrease))>(Math.abs(greatestLosse))){
-  //   console.log(`${greatestIncrease[1]} with profits ${greatestIncrease[2]} has the greatest increase in profits with value ${greatestIncrease[0]}.`);
-  // } else if ((Math.abs(greatestIncrease))<(Math.abs(greatestLosse))){
-  //   console.log(`${greatestLosses[1]} with losses ${greatestLosses[2]} has the greatest losses with value ${greatestLosses[0]};
-  // }
-
-
-  // // console.log(`${greatestIncrease[1]} with profits ${greatestIncrease[2]} has the greatest increase in profits with value ${greatestIncrease[0]}.`);
-  // console.log(`${greatestLosses[1]} with losses ${greatestLosses[2]} has the greatest losses with value ${greatestLosses[0]}`);
-
-//The greatest decrease in Profit / Losses(date and amount) over the entire period
-
-
-// let greatestProfitDecrease = [0, ' ', ' '];
-// let greatestLossDecrease = [0, ' ', ' '];
-
-// for ( let i=1; i < finances.length; i++){
-//   let change = [finances[i][1]-finances[i-1][1]]
-//   if (change < 0 && change < greatestProfitDecrease[0]) {
-//     greatestProfitDecrease=[change, finances[i][0], finances[i][1]];
-
-// } else if (change < greatestLossDecrease[0]) {
-//   greatestLossDecrease=[change, finances[i][0], finances[i][1]];
-// }
-// }
-
-// console.log(`${greatestProfitDecrease[1]} with profits ${greatestProfitDecrease[2]} has the greatest decrease in profits with value ${greatestProfitDecrease[0]}.`);
-// console.log(`${greatestLossDecrease[1]} with losses ${greatestLossDecrease[2]} has the greatest decrease with value ${greatestLossDecrease[0]}`);
-
-  
 
 
 
